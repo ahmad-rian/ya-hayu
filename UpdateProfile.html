@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <title>Yahayu</title>
+  <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: 'Poppins', sans-serif;
+        line-height: 1.6;
+        background: linear-gradient(#FFDD55, #FFCC00);
+      }
+      
+      .nav-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background: #FFCC00;
+        font-weight: bold;
+        font-size: 24px;
+    
+      }
+      
+      .brand-logo {
+        font-size: 30px;
+        font-weight: bold;
+      }
+      
+      .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+        font-size: 23px;
+        justify-content: center;
+        text-align: center;
+      }
+      
+      .nav-item {
+        text-decoration: none;
+        color: black;
+        padding: 10px 40px;
+        display: block;
+      }
+      
+      .nav-item-with-icon {
+        display: flex;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+      }
+    
+      .nav-icon {
+        width: 15px;
+        height: 20px;
+        margin-right: 5px;
+      }
+      
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #FFCC00;
+        display: none;
+        flex-direction: column;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        border-radius: 5px;
+        z-index: 10;
+      }
+    
+      .dropdown-item {
+        text-decoration: none;
+        color: black;
+        padding: 5px 10px;
+        border-bottom: 1px solid #f0f0f0;
+      }
+    
+      .dropdown-item:last-child {
+        border-bottom: none;
+      }
+    
+      .dropdown-item:hover {
+        background-color: #1E8C45;
+        color: white;
+      }
+
+    
+      .button-container {
+        display: flex;
+        gap: 10px;
+        font-family: Poppins;
+      }
+    
+      .buttonL a {
+        text-decoration: none;
+        background-color: #1E8C45;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 50px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+        font-size: 23px;
+      }
+    
+      .buttonL a:hover {
+        background-color: white;
+        color: #1E8C45;
+      }
+    
+      .buttonR a {
+        text-decoration: none;
+        background-color: #FFCC00;
+        color: #1E8C45;
+        padding: 10px 20px;
+        border-radius: 50px;
+        font-weight: bold;
+        font-size: 23px;
+        transition: background-color 0.3s ease;
+        border-color:#1E8C45 ;
+        border-bottom: #1E8C45;
+      }
+    
+      .buttonR a:hover {
+        color: white;
+        background-color: #1E8C45;
+      }
+
+    .profile-form {
+        background-color: #FFCC00;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        width: 30%;
+        height: 70%;
+        margin: 0 auto;
+        margin-top: 0 auto;
+        border-radius: 30px;
+        margin-bottom: 50PX;
+    }
+
+    .profile-title {
+        text-align: center;
+        font-size: 48px;
+        font-weight: bold;
+        color: #1E8C45;
+        margin: 40px;
+    }
+
+    .profile-form label {
+        display: block;
+        margin: 10px 0 5px;
+        color: #004d40;
+        border-radius: 30px;
+    }
+    .profile-form input[type="text"],
+    .profile-form input[type="email"],
+    .profile-form input[type="password"],
+    .profile-form input[type="date"] {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 30px;
+        margin-bottom: 10px;
+    }
+    .date-group {
+        display: flex;
+        gap: 10px;
+    }
+    .date-group input {
+        flex: 1;
+    }
+    .profile-form .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+    .profile-form button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    .profile-form .discard {
+        background-color: #e0e0e0;
+        color: #004d40;
+    }
+    .profile-form .save {
+        background-color: #004d40;
+        color: #ffffff;
+    }
+
+  </style>
+
+  <body>
+    <header class="hero">
+        <nav class="nav-header" role="navigation" aria-label="Main navigation">
+          <div class="brand-logo">YaHaYu</div>
+          <div class="nav-menu">
+            <a href="Home.html" class="nav-item">Home</a>
+            <div class="nav-item-with-icon" onclick="toggleDropdown()">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/c071fa65bfd4b98a705604af764ed18d0bca0822702f81df44640ac5a4aeb87d?placeholderIfAbsent=true&apiKey=820f30d49f024d318c8b29f3eaf6b5a7" class="nav-icon" alt="" aria-hidden="true"/>
+              <span class="nav-text">Destinations</span>
+              <div class="dropdown-menu" id="dropdownMenu" role="menu">
+                <a href="Beaches/Beaches.html" class="dropdown-item" role="menuitem">Beaches</a>
+                <a href="Deserts/Deserts.html" class="dropdown-item" role="menuitem">Deserts</a>
+                <a href="Waterfalls/Waterfalls.html" class="dropdown-item" role="menuitem">Waterfalls</a>
+                <a href="CulturalSites/CulturalSites.html" class="dropdown-item" role="menuitem">Cultural Sites</a>
+                <a href="Mountains/Mountains.html" class="dropdown-item" role="menuitem">Mountains</a>
+              </div>
+            </div>
+            <a href="Services.html" class="nav-item">Services</a>
+          </div>
+  
+        </div>
+        <div class="button-container">
+          <div class="buttonL">
+            <a href="Login.html">Login</a>
+          </div>
+  
+          <div class="buttonR">
+            <a href="Register.html">Sign Up</a>
+          </div>
+        </div>
+        </nav>
+    </header>
+
+
+    <h2 class="profile-title">Informasi Profil</h2>
+    <div class="profile-form">
+        <form id="profileForm">
+            <label for="nama">Nama Lengkap</label>
+            <input type="text" id="nama" name="nama">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username">
+            <label for="phone">Nomor Telepon</label>
+            <input type="text" id="phone" name="phone">
+            <label for="visit-time">Tanggal Lahir</label>
+            <div class="date-group">
+                <input type="text" id="visit-day" placeholder="Tanggal">
+                <input type="text" id="visit-month" placeholder="Bulan">
+                <input type="text" id="visit-year" placeholder="Tahun">
+            </div>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password">
+            <label for="confirm-password">Konfirmasi Password</label>
+            <input type="password" id="confirm-password" name="confirm-password">
+            <div class="buttons">
+                <button type="button" class="discard">Discard Changes</button>
+                <button type="submit" class="save">Save Changes</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function fillProfileForm() {
+        const regForm = document.getElementById('registrationForm');
+        const profileForm = document.getElementById('profileForm');
+
+        profileForm.nama.value = regForm['full-name'].value;
+        profileForm.email.value = regForm.email.value;
+        profileForm.username.value = regForm.username.value;
+        profileForm.phone.value = regForm.phone.value;
+        profileForm['visit-day'].value = regForm['birth-day'].value;
+        profileForm['visit-month'].value = regForm['birth-month'].value;
+        profileForm['visit-year'].value = regForm['birth-year'].value;
+        profileForm.password.value = regForm.password.value;
+        profileForm['confirm-password'].value = regForm['confirm-password'].value;
+    }
+</script>
+
+</body>
